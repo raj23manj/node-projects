@@ -1,0 +1,17 @@
+{
+  "name": "basic-site-express",
+  "version": "1.0.0",
+  "description": "Simple test website in express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rajesh Manjunath",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.0",
+    "jade": "^1.11.0",
+    "nodemailer": "^4.1.1"
+  }
+}
