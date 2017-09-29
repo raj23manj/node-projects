@@ -1,0 +1,11 @@
+{
+  "name": "server_extented",
+  "version": "1.0.0",
+  "description": "simple extended version of web server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rajesh Manjunath",
+  "license": "ISC"
+}
