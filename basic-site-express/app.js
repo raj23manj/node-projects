@@ -29,8 +29,8 @@ app.post('/contact/send', (req, res) => {
   let transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 
-            pass: 
+            user: 'test',
+            pass: 'test'
         }
     });
 
@@ -57,3 +57,5 @@ app.post('/contact/send', (req, res) => {
 app.listen(3000);
 
 console.log("Server is running");
+
+module.exports = app;
