@@ -16,4 +16,18 @@ describe("Basic Website App Routes", () => {
       });
   });
 
+  it("Should Load the /about page", (done) => {
+      request(app).get("/about").end((err, res) =>{
+          expect(res.status).to.equal(200);
+          done();
+      });
+  });
+
+  it("Should Load the /about page", (done) => {
+      request(app).get("/contact").end((err, res) =>{
+          expect(res.status).to.equal(200);
+          done();
+      });
+  });
+
 });
