@@ -5,7 +5,7 @@ const cheerio = require("cheerio");
 
 
 
-describe("Basic Website App Routes", function() {
+describe("Basic Website App Routes", () => {
 
   it("Should Load the root page", (done) => {
       request(app).get("/").end((err, res) =>{
