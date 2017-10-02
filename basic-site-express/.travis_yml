@@ -1,5 +1,5 @@
 language: node_js
-before_install: cd basic-site-express
+before_install: cd raj23manj/node-projects/basic-site-express
 node_js:
   - "iojs"
   - "8"
