@@ -4,7 +4,7 @@
   "description": "Simple test website in express",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Rajesh Manjunath",
   "license": "ISC",
@@ -17,6 +17,8 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "cheerio": "^1.0.0-rc.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
     "mocha": "^3.5.3",
     "nock": "^9.0.22",
     "supertest": "^3.0.0"
