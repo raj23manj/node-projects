@@ -19,6 +19,7 @@ html(lang='en')
           a.nav-link(href='/users/logout') Logout
 
     .container
+      != messages()
       block content
      
     script(src='/javascripts/jquery-3.2.1.slim.min.js')
