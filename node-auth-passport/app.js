@@ -51,6 +51,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+// to set global loggedin user
+app.get('*', function(req, res, next){
+  res.locals.user = req.user || null;
+  next();
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

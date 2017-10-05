@@ -21,6 +21,12 @@ router.get('/login', function(req, res, next) {
   res.render('login', {title: 'Login'});
 });
 
+router.get('/logout', function(req, res){
+  req.logout();
+  req.flash('success', 'Logged out successfully');
+  res.redirect('/users/login');
+});
+
 // authentication 
 router.post('/login',
   passport.authenticate('local', {failureRedirect: '/users/login', failureFlash: 'Invalid username or password'}),
