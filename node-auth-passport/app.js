@@ -18,6 +18,8 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
 var expressValidator = require('express-validator');
+// const { check, validationResult } = require('express-validator/check');
+// const { matchedData, sanitize } = require('express-validator/filter');
 
 //var  = require('');
 
