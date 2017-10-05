@@ -5,23 +5,21 @@ html(lang='en')
     link(href='/stylesheets/bootstrap.css', rel='stylesheet')
     link(href='/stylesheets/style.css', rel='stylesheet')
   body
-    .navbar.navbar-default(role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-            a.navbar-brand(href='#') NodeAuth
-          ul.nav.navbar-nav
-            li
-              a(href='/') Members
-            li
-              a(href='/users/register') Register
-            li
-              a(href='/users/login') Login
-          ul.nav.navbar-nav.navbar-right
-           li
-              a(href='/users/logout') Logout
+    nav.navbar.navbar-light.bg-light(role='navigation')
+      a.navbar-brand(href='#') NodeAuth
+      ul.navbar-nav.mr-auto
+        li.nav-item(class=(title == 'Members' ? 'active' : ''))
+          a.nav-link(href='/') Members
+        li.nav-item(class=(title == 'Register' ? 'active' : ''))
+          a.nav-link(href='/users/register') Register
+        li.nav-item(class=(title == 'Login' ? 'active' : ''))
+          a.nav-link(href='/users/login') Login
+      ul.navbar-nav.mr-auto.navbar-right
+       li.nav-item
+          a.nav-link(href='/users/logout') Logout
+
     .container
-     block content
+      block content
      
     script(src='/javascripts/jquery-3.2.1.slim.min.js')
     script(src='/javascripts/popper.min.js')
