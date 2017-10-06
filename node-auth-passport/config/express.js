@@ -16,9 +16,6 @@ var db = mongoose.connection;
 var expressValidator = require('express-validator');
 var bcrypt = require('bcryptjs');
 
-
-var users = require('../routes/users');
-
 module.exports = function(app, currentDirectory) {
   // view engine setup
 app.set('views', path.join(currentDirectory, 'views'));
@@ -40,7 +37,6 @@ app.use(passport.session());
 app.use(expressValidator({}));
 
 // express-messages/connect-flash
-
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
@@ -63,7 +59,6 @@ app.use(express.static(path.join(currentDirectory, 'public')));
 
 //app.use('/', index);
 require('../config/routes')(app);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
