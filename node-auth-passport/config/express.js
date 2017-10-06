@@ -16,7 +16,7 @@ var db = mongoose.connection;
 var expressValidator = require('express-validator');
 var bcrypt = require('bcryptjs');
 
-var index = require('../routes/index');
+
 var users = require('../routes/users');
 
 module.exports = function(app, currentDirectory) {
@@ -61,7 +61,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(currentDirectory, 'public')));
 
-app.use('/', index);
+//app.use('/', index);
+require('../config/routes')(app);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
