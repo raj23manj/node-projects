@@ -1,7 +1,7 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
-
+var pry = require('pryjs');
 
 exports.landing = function(req, res, next) {
   res.send('respond with a resource');
@@ -10,7 +10,6 @@ exports.landing = function(req, res, next) {
 exports.register = function(req, res, next){
   res.render('register', {title: 'Register'});
 }
-
 
 exports.login = function(req, res, next) {
   res.render('login', {title: 'Login'});
@@ -23,8 +22,8 @@ exports.logout = function(req, res, next) {
 }
 
 exports.login_submit = function(req, res, next) {
-  
-  // req._routeWhitelists.body = ['username', 'password']
+  //eval(pry.it)
+  req._routeWhitelists.body = ['username']
   req.flash('success', 'You are now logged in');
   res.redirect('/');
 }
