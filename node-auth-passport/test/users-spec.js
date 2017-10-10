@@ -28,4 +28,10 @@ describe("Users Routes", () => {
       });
   });
 
+  it("should post a register", (done) => {
+    request(app).post("/users/register").end((err, res) => {
+      
+    });
+  });
+
 });

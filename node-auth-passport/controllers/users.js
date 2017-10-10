@@ -23,8 +23,10 @@ exports.logout = function(req, res, next) {
 }
 
 exports.login_submit = function(req, res, next) {
-    req.flash('success', 'You are now logged in');
-    res.redirect('/');
+  
+  // req._routeWhitelists.body = ['username', 'password']
+  req.flash('success', 'You are now logged in');
+  res.redirect('/');
 }
 
 exports.register_submit = function(req, res, next) {
