@@ -39,7 +39,7 @@ User.comparePassword = function(candidatePassword, hash, callback){
   bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
     // res === true 
     callback(null, isMatch);
-});
+  });
 }
 
 User.createUser = function(newUser, callback){
@@ -49,6 +49,10 @@ User.createUser = function(newUser, callback){
       newUser.save(callback);
     });
   });
+}
+
+User.remove_by_username = function(userName, callback){
+  User.deleteOne({ username: userName }, callback);
 }
 
 module.exports = User;

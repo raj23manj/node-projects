@@ -2,25 +2,25 @@ const request = require('supertest');
 const expect = require('chai').expect;
 const app = require('../app');
 const cheerio = require("cheerio");
-//const User = require('../models/user');
+var User = require('../models/user');
 
 describe("Users Routes", () => {
 
-  it("should Load User's Root Page and have a response", (done) => {
+  it("should Get /users/", (done) => {
     request(app).get('/users/').expect(200).end((err, res) =>{
       expect(res.text).to.equal("respond with a resource");
       done();
     });
   });
 
-  it("Should Load the User Register Page", (done) => {
+  it("Should GET /users/register", (done) => {
       request(app).get("/users/register").end((err, res) =>{
           expect(res.status).to.equal(200);
           done();
       });
   });
 
-  it("should have header as register", (done) => {
+  it("should Get /users/register Test HEader", (done) => {
     request(app).get("/users/register").end((err, res) =>{
           let $ = cheerio.load(res.text);
           let pageHeading = $("body div.container h2.page-header").text();
@@ -29,18 +29,7 @@ describe("Users Routes", () => {
       });
   });
 
-// wrong implementation it will be success only
-  // it("should post a register", (done) => {
-  //   request(app).post("/users/register")
-  //               .field('username', 'a')
-  //               .field('password', '1234')
-  //               .expect(200)
-  //               .end((err, res) => {
-  //                 done();
-  //   });
-  // });
-
-  it("should  login", (done) => {
+  it("should POST /users/login login", (done) => {
     request(app).post("/users/login")
                 .send({
                         username: 'a',
@@ -50,7 +39,8 @@ describe("Users Routes", () => {
                 .end(done);
   });
 
-  it("should  login23", (done) => {
+  it("should POST /users/login login for testing text", (done) => {
+    // while redirecting no text is coming need to check it again
     request(app).post("/users/login")
                 .send({
                         username: 'a',
@@ -63,6 +53,24 @@ describe("Users Routes", () => {
                 });
   });
 
+});
+
+describe("Register", () => {
+  it("Should POST /users/register, successful", done => {
+      request(app).post('/users/register')
+                  .send({
+                          name: "mocha23",
+                          email: "mocha23@gmail.com",
+                          username: "mocha23",
+                          password: "qwerty",
+                          confirmpassword: "qwerty"
+                  }).expect('Location', '/').end(done);
+  });
+
+  after(function(done) {
+      User.remove_by_username("mocha23", (err) => {});
+      done();
+    });
 });
 
 
