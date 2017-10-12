@@ -41,6 +41,7 @@ ORM/ODM:
 
 Logger:
   winston
+  morgan
 
 Validator:
   express-validator
@@ -50,3 +51,7 @@ Session:
 
 Date & Time:
   moment
+
+Inspect:
+  node --inspect [app]
+  open in chrome => chrome://inspect

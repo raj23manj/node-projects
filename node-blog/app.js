@@ -11,12 +11,17 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var expressValidator = require('express-validator');
 var mongo = require('mongodb');
-var db = require('monk')('localhost/nodeblog');
+var db = require('monk')('localhost/nodebolg');
+var moment = require('moment');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+
+// Set moment globally
+app.locals.moment = moment;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
