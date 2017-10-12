@@ -24,10 +24,10 @@ Emailer:
 
 Flash Messages:
   express-messages
+  connect-flash
 
 Serve Favicons:
   serve-favicon
-
 
 File Uploads:
   multer
@@ -37,3 +37,16 @@ Data Source:
 
 ORM/ODM:
   mongoose
+  monk
+
+Logger:
+  winston
+
+Validator:
+  express-validator
+
+Session:
+  express-session
+
+Date & Time:
+  moment
