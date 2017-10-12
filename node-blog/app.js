@@ -4,6 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer= require('multer');
+var upload = multer({dest: './uploads'});
+var flash = require('connect-flash');
+var session = require('express-session');
+var expressValidator = require('express-validator');
+var mongo = require('mongodb');
+var db = require('monk')('localhost/nodeblog');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -21,6 +28,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Make The db accesible to the router
+app.use((req,res,next) => {
+  req.db = db;
+  next();
+});
+
+// connect-flash with express messages
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+    res.locals.messages = require('express-messages')(req, res);
+    next();
+  });
+
+// Express-validator
+app.use(expressValidator({}));
+
+ //Handle Sessions
+app.use(session({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
 
 app.use('/', index);
 app.use('/users', users);
