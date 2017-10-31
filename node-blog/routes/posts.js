@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var multer= require('multer');
-var upload = multer({dest: './uploads'});
+var upload = multer({dest: './public/images/blog'});
 var db = require('monk')('localhost/nodebolg');
 var moment = require('moment');
 var posts = db.get('posts');
 var categories = db.get('categories');
-
 
 router.get('/add', function(req, res, next) {
   categories.find({}, {}, function(err, categories) {
@@ -47,7 +46,8 @@ router.post('/add', upload.single('mainimage'),function(req, res, next) {
       body: body,
       date: date,
       author: author,
-      mainimage: mainimage 
+      mainimage: mainimage,
+      category: category
     }, function(err, post){
       if(err){
         res.send(err);

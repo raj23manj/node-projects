@@ -9,8 +9,6 @@ router.get('/', function(req, res, next) {
   var posts = db.get('posts');
 
   posts.find({}, {}, (err, posts) => {
-    console.log('ddddd');
-    console.log(posts);
     res.render('index', { posts: posts });
   });
 });
