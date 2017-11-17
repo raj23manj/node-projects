@@ -1,0 +1,8 @@
+{
+  "development": {
+      "MONGO_URI": "mongodb://localhost/nodebolg"
+  },
+  "test": {
+      "MONGO_URI": "mongodb://localhost/nodebolg-test"
+  }
+}
