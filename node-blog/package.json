@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "debug": "node --inspect ./bin/www",
     "dev": "node-dev ./bin/www",
-    "test": "NODE_ENV=test node-dev ./bin/www"
+    "test": "NODE_ENV=test node-dev ./bin/www",
+    "test-mocha": "NODE_ENV=test mocha"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
