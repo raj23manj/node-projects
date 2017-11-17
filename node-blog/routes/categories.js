@@ -17,25 +17,20 @@ router.get('/show/:category', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-
     res.render('addcategory', {
       'title': 'Add Category'
     });
 });
 
 router.post('/add', function(req, res, next) {
-
   var name = req.body.name ;
-
-
   req.checkBody('name', 'title field is required').notEmpty();
-
-   //check errors
+  //check errors
   var errors = req.validationErrors();
 
   if(errors){
     console.log('errors');
-    res.render('addpost', {errors: errors});
+    res.render('addcategory', {errors: errors});
   }else{
     console.log('noerrors')
     categories.insert({
