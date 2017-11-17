@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var mongo = require('mongodb');
-var db = require('monk')('localhost/nodebolg');
+var config = require('../config/config.json')[process.env.NODE_ENV || 'development'];
+var db = require('monk')(config["MONGO_URI"]);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

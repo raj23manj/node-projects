@@ -11,7 +11,6 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var expressValidator = require('express-validator');
 var config = require('./config.json')[process.env.NODE_ENV || 'development'];
-var mongo = require('mongodb');
 var db = require('monk')(config["MONGO_URI"]);
 var moment = require('moment');
 var index = require('../routes/index');

@@ -15,3 +15,6 @@ module.exports = function(){
             return {error or other settings};
     }
 };
+
+
+//https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
